@@ -1,8 +1,8 @@
-// Harbor Backup as a desktop app: the Angular Harbor app (apps/harbor-backup)
+// Harbor Backup as a desktop app: the Angular Harbor app (app/ in this repository)
 // in a Wails v3 window, with the Spartan Native service reading the OS.
 //
-//	npm run build:harbor-desktop   # builds Harbor, embeds it, builds this binary
-//	npm run start:harbor-desktop   # … and runs it
+//	npm run build:desktop:wails   # builds Harbor, embeds it, builds this binary
+//	npm run start:desktop:wails   # … and runs it
 package main
 
 import (
@@ -11,7 +11,7 @@ import (
 	"log"
 	"runtime"
 
-	spartannative "github.com/spartan-native/host-wails/native"
+	spartannative "github.com/spartan-native/host-wails"
 	"github.com/wailsapp/wails/v3/pkg/application"
 )
 

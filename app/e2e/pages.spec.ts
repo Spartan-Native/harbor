@@ -1,5 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
-import { openStory, SKINS } from '../../../packages/theme/e2e/storybook';
+import { openStory, SKINS } from './storybook';
 
 // Every Harbor page (one story per menu point) on every skin, light and dark.
 test.use({ reducedMotion: 'reduce', viewport: { width: 1200, height: 760 } });

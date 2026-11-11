@@ -1,0 +1,33 @@
+# Compiled output
+/dist
+/tmp
+/out-tsc
+
+# Node
+/node_modules
+npm-debug.log
+
+# IDEs and editors
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Angular
+/.angular/cache
+.sass-cache/
+/coverage
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Storybook
+*storybook.log
+storybook-static/
+
+# Playwright
+test-results/
+playwright-report/
+
+# Visual-test baselines are per machine
+__screenshots__/

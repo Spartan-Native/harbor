@@ -3,7 +3,7 @@ module harbor-desktop
 go 1.26.0
 
 require (
-	github.com/spartan-native/host-wails/native v0.0.0
+	github.com/spartan-native/host-wails v0.1.0
 	github.com/wailsapp/wails/v3 v3.1.0
 )
 
@@ -15,7 +15,3 @@ require (
 	golang.org/x/sys v0.49.0 // indirect
 	golang.org/x/term v0.46.0 // indirect
 )
-
-// Workspace glue: use the adapter from this repository. In a separate app, point this at
-// ./frontend/node_modules/@spartan-native/host-wails/native (the npm package ships the Go module).
-replace github.com/spartan-native/host-wails/native => ../../packages/hosts/host-wails/native

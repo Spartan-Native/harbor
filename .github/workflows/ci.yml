@@ -1,0 +1,74 @@
+# Tests and builds Harbor: the Angular app (browser) and every desktop shell.
+# The visual tests are left out: their baselines are per machine (see AGENTS.md).
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  app:
+    name: Angular app
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      # Installs @spartan-native/* from GitHub Packages. Each package must give this
+      # repository read access (package settings → Manage Actions access).
+      packages: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          registry-url: https://npm.pkg.github.com
+          scope: '@spartan-native'
+
+      - name: Install dependencies
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm ci
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+  wails:
+    name: Desktop shell (Wails)
+    # macOS: the host-wails appearance reader uses cgo.
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: desktop/wails
+    env:
+      GOPRIVATE: github.com/spartan-native/*
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: desktop/wails/go.mod
+          cache-dependency-path: desktop/wails/go.sum
+
+      # github.com/spartan-native/host-wails is private, and this workflow's GITHUB_TOKEN
+      # can't read another repository. HOST_WAILS_TOKEN is a fine-grained token with
+      # read access to Contents of Spartan-Native/host-wails.
+      - name: Git auth for the private Go module
+        env:
+          TOKEN: ${{ secrets.HOST_WAILS_TOKEN }}
+        run: git config --global url."https://x-access-token:${TOKEN}@github.com/".insteadOf "https://github.com/"
+
+      # Builds against the placeholder frontend/dist/index.html; the app itself is built by the job above.
+      - name: Vet
+        run: go vet ./...
+
+      - name: Build
+        run: go build -o bin/harbor-backup .

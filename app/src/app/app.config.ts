@@ -5,7 +5,7 @@ import { isWails, wailsHost } from '@spartan-native/host-wails';
 import { provideSpartanNative } from '@spartan-native/theme';
 import { provideSpartanHlm } from '@spartan-ng/helm/utils';
 
-/** Inside the Wails desktop app (apps/harbor-desktop), or in a browser / installed PWA. */
+/** Inside the Wails desktop app (desktop/wails), or in a browser / installed PWA. */
 const inWails = isWails();
 
 export const appConfig: ApplicationConfig = {
