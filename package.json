@@ -46,7 +46,7 @@
     "@spartan-native/theme": "^0.2.0",
     "@spartan-ng/brain": "^1.9.0",
     "@tanstack/angular-charts": "0.16.0",
-    "@tanstack/charts": "0.16.0",
+    "@tanstack/charts": "1.5.0",
     "@wailsio/runtime": "^3.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
