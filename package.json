@@ -1,7 +1,13 @@
 {
   "name": "harbor",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "private": true,
+  "license": "MIT",
+  "homepage": "https://spartan-native.github.io/harbor/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Spartan-Native/harbor.git"
+  },
   "description": "Harbor Backup: the Spartan Native sample app, in the browser and as a desktop app (Wails).",
   "scripts": {
     "ng": "ng",
@@ -12,6 +18,8 @@
     "build-storybook": "ng run harbor-backup:build-storybook",
     "test:visual": "ng run harbor-backup:build-storybook && playwright test",
     "test:report": "npx playwright show-report dist/playwright-report",
+    "build:site": "node scripts/build-site.mjs",
+    "build:site:demo": "ng build harbor-backup --base-href /harbor/demo/ && node scripts/build-site.mjs --demo",
     "build:desktop:wails": "node desktop/wails/scripts/build.mjs",
     "start:desktop:wails": "node desktop/wails/scripts/build.mjs --run"
   },
@@ -31,11 +39,11 @@
     "@angular/service-worker": "^22.2.0",
     "@ng-icons/core": "^33.4.0",
     "@ng-icons/lucide": "^33.4.0",
-    "@spartan-native/desktop-ui": "^0.1.0",
-    "@spartan-native/helm": "^0.1.0",
-    "@spartan-native/host-wails": "^0.1.0",
-    "@spartan-native/host-web": "^0.1.0",
-    "@spartan-native/theme": "^0.1.0",
+    "@spartan-native/desktop-ui": "^0.2.0",
+    "@spartan-native/helm": "^0.2.0",
+    "@spartan-native/host-wails": "^0.2.0",
+    "@spartan-native/host-web": "^0.2.0",
+    "@spartan-native/theme": "^0.2.0",
     "@spartan-ng/brain": "^1.9.0",
     "@tanstack/angular-charts": "0.16.0",
     "@tanstack/charts": "0.16.0",

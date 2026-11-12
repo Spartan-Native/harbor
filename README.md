@@ -1,6 +1,10 @@
 # Harbor Backup
 
+[![CI](https://github.com/Spartan-Native/harbor/actions/workflows/ci.yml/badge.svg)](https://github.com/Spartan-Native/harbor/actions/workflows/ci.yml) [![Website](https://github.com/Spartan-Native/harbor/actions/workflows/pages.yml/badge.svg)](https://spartan-native.github.io/harbor/) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 The sample app for [Spartan Native](https://github.com/Spartan-Native/spartan-native): one Angular codebase that looks native on Windows 11, Windows 10, macOS 26, macOS 13–15, GNOME, KDE and ChromeOS, in the browser and as a desktop app.
+
+**[Try the live demo](https://spartan-native.github.io/harbor/demo/)** · [Website](https://spartan-native.github.io/harbor/) · [Spartan Native](https://spartan-native.github.io/spartan-native/) · [The spec](docs/sample-app.md)
 
 ![Harbor Backup sliced across seven skins](docs/images/hero-one-app-seven-skins.png)
 
@@ -21,25 +25,19 @@ Harbor is the end-to-end acceptance test for the Spartan Native packages and hos
 ├── desktop/
 │   └── wails/              Wails v3 shell (Go)
 ├── docs/                   The spec and images
+├── site/                   The project page, published to GitHub Pages with the live demo
+├── scripts/                build-site.mjs: the page (and demo) into dist/site
 ├── angular.json, package.json, tsconfig.json
 └── playwright.config.ts
 ```
 
 ## Setup
 
-The `@spartan-native/*` packages are published to **GitHub Packages**, not npmjs.org. You need a GitHub token with `read:packages` in your `~/.npmrc`:
-
-```text
-//npm.pkg.github.com/:_authToken=<token>
-```
-
-`.npmrc` in this repository points the `@spartan-native` scope at GitHub Packages. Then:
+Node ≥ 24.15 (see `.nvmrc`), npm ≥ 11. The `@spartan-native/*` packages come from npmjs.org, so no token or registry setup is needed:
 
 ```bash
 npm install
 ```
-
-Node ≥ 24.15 (see `.nvmrc`), npm ≥ 11.
 
 ## Run in the browser
 
@@ -99,7 +97,7 @@ npm run start:desktop:wails    # build the app, embed it, build and run the bina
 npm run build:desktop:wails    # build only → desktop/wails/bin/harbor-backup[.exe]
 ```
 
-The Wails shell needs Go ≥ 1.26, the Wails v3 platform prerequisites, and access to the private Go module `github.com/spartan-native/host-wails` (`go env -w GOPRIVATE=github.com/spartan-native/*` plus git access to GitHub). See [`desktop/wails/README.md`](desktop/wails/README.md), including the rule that the Go module and `@spartan-native/host-wails` stay at the same version.
+The Wails shell needs Go ≥ 1.26 and the Wails v3 platform prerequisites; the Go module `github.com/spartan-native/host-wails` comes from the public Go proxy. See [`desktop/wails/README.md`](desktop/wails/README.md), including the rule that the Go module and `@spartan-native/host-wails` stay at the same version.
 
 ### Adding another shell
 
@@ -131,3 +129,20 @@ npm run test:report                          # open the last report
 | `@spartan-native/host-wails` | The Wails host (with the Go module `github.com/spartan-native/host-wails`) |
 | `@spartan-ng/brain` + `components/ui` | spartan/ui |
 | `@tanstack/angular-charts`, `ngx-scrollbar`, `@ng-icons/lucide` | Backup-size chart, scroll areas, icons |
+
+## Website
+
+[`site/`](site/index.html) is the project page, in the style of the other Spartan Native pages. On every push to `main`, [`pages.yml`](.github/workflows/pages.yml) builds it together with the app (base href `/harbor/demo/`) and deploys both to <https://spartan-native.github.io/harbor/>.
+
+```bash
+npm run build:site          # the page only → dist/site (npx serve dist/site)
+npm run build:site:demo     # the page and the demo, as GitHub Pages serves them
+```
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). Problems in a component, skin or host adapter belong to [spartan-native](https://github.com/Spartan-Native/spartan-native) or [host-wails](https://github.com/Spartan-Native/host-wails); Harbor shows those packages as they are. Changes are listed in [CHANGELOG.md](CHANGELOG.md).
+
+## License
+
+[MIT](LICENSE). The stock spartan/ui components in `components/ui/` are MIT licensed by their authors; see [NOTICE](NOTICE). Harbor Backup is a fictional product, and platform names are trademarks of their respective owners.

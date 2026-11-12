@@ -1,0 +1,16 @@
+name: Feature request
+description: A page, flow, desktop shell or OS detail Harbor should show.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: What should Harbor show?
+      description: What is missing, and what would it prove about Spartan Native?
+    validations:
+      required: true
+  - type: textarea
+    id: native
+    attributes:
+      label: How a native app does it
+      description: The control or convention on each platform you care about, with links or screenshots if you have them.

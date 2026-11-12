@@ -2,7 +2,7 @@
 
 Instructions for AI coding agents working in this repository.
 
-Harbor Backup is the sample app for the Spartan Native packages (`@spartan-native/theme`, `helm`, `desktop-ui`, `host-web`, `host-wails`). The packages live in their own repositories and come from GitHub Packages; each ships an `AGENTS.md` in `node_modules/@spartan-native/<package>/AGENTS.md`. Read those before changing how the app uses a package.
+Harbor Backup is the sample app for the Spartan Native packages (`@spartan-native/theme`, `helm`, `desktop-ui`, `host-web`, `host-wails`). The packages live in their own repositories and come from npmjs.org; each ships an `AGENTS.md` in `node_modules/@spartan-native/<package>/AGENTS.md`. Read those before changing how the app uses a package.
 
 ## Layout
 
@@ -10,6 +10,7 @@ Harbor Backup is the sample app for the Spartan Native packages (`@spartan-nativ
 - **`components/ui/`:** stock spartan/ui helm components, imported as `@spartan-ng/helm/*` (paths in `tsconfig.json`). Don't edit them by hand; add new ones with `npx ng g @spartan-ng/cli:ui <name>` and add the path to `tsconfig.json`.
 - **`desktop/<shell>/`:** one folder per desktop shell. `desktop/wails/` is the Wails v3 shell (Go).
 - **`docs/sample-app.md`:** the spec: pages, components, acceptance.
+- **`site/`:** the project page (plain HTML, CSS and JS). `scripts/build-site.mjs` builds it into `dist/site`, and `.github/workflows/pages.yml` deploys it to GitHub Pages together with the app as a live demo under `demo/` (built with `--base-href /harbor/demo/`).
 
 ## Rules
 

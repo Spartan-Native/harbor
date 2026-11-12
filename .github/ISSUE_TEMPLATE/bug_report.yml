@@ -1,0 +1,66 @@
+name: Bug report
+description: Something in Harbor looks or behaves wrong.
+labels: [bug]
+body:
+  - type: dropdown
+    id: runtime
+    attributes:
+      label: Running as
+      multiple: true
+      options:
+        - Browser tab (npm start or the live demo)
+        - Installed PWA
+        - Wails desktop app
+    validations:
+      required: true
+  - type: dropdown
+    id: page
+    attributes:
+      label: Page
+      multiple: true
+      options:
+        - Overview
+        - Schedules
+        - Destinations
+        - Restore files
+        - Settings
+        - Window chrome / dev bar
+        - Storybook
+        - Not sure
+  - type: dropdown
+    id: skin
+    attributes:
+      label: Skin
+      multiple: true
+      options:
+        - Windows 11 (win)
+        - Windows 10 (w10)
+        - macOS 26 (mac)
+        - macOS 13–15 (macc)
+        - GNOME (gtk)
+        - KDE Plasma (qt)
+        - ChromeOS (cros)
+        - All of them
+  - type: input
+    id: os
+    attributes:
+      label: Operating system and browser
+      placeholder: Windows 11 24H2 + Edge 142, macOS 26.1 (Wails), …
+  - type: input
+    id: commit
+    attributes:
+      label: Commit
+      description: '`git rev-parse --short HEAD`, or "live demo".'
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected, and what happened instead
+      description: Screenshots help, especially next to the real OS app.
+    validations:
+      required: true

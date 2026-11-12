@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/Spartan-Native/harbor/security/advisories/new
+    about: Please report security problems privately, not as an issue.
+  - name: Problem in a Spartan Native package (theme, helm, desktop-ui, host-web)
+    url: https://github.com/Spartan-Native/spartan-native/issues
+    about: If a component or skin is wrong outside Harbor too, it belongs to Spartan Native.
+  - name: Problem in the Wails host adapter
+    url: https://github.com/Spartan-Native/host-wails/issues
+    about: OS settings, menus or dialogs read wrong in any Wails app.

@@ -1,0 +1,5 @@
+# Generated or third-party files: collapsed in pull request diffs and left out of the
+# repository's language statistics.
+components/ui/** linguist-generated=true
+package-lock.json linguist-generated=true
+desktop/wails/go.sum linguist-generated=true

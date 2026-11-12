@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Harbor Backup · Spartan Native</title>
+    <meta
+      name="description"
+      content="Harbor Backup, the Spartan Native sample app: one Angular codebase that looks native on Windows 11 and 10, macOS 26 and 13–15, GNOME, KDE and ChromeOS, in the browser and as a Wails desktop app."
+    />
+    <meta name="theme-color" content="#08090d" />
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/site.css" />
+    <script src="assets/site.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="nav">
+      <div class="wrap">
+        <a class="logo" href="./"><img src="assets/logo.svg" alt="" width="28" height="28" />Harbor Backup</a>
+        <ul class="nav-links">
+          <li><a href="#skins">Seven skins</a></li>
+          <li><a href="#pages">Pages</a></li>
+          <li><a href="#runtimes">Browser &amp; desktop</a></li>
+          <li><a href="#run">Run it</a></li>
+          <li><a href="https://spartan-native.github.io/spartan-native/">Spartan Native</a></li>
+        </ul>
+        <div class="nav-end">
+          <a class="btn btn-ghost btn-sm" href="https://github.com/Spartan-Native/harbor">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.08 0 4.41-2.7 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"
+              />
+            </svg>
+            GitHub
+          </a>
+          <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ============================================================ Hero -->
+      <section class="page-hero">
+        <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="grid-bg" aria-hidden="true"></div>
+        <div class="wrap split">
+          <div>
+            <div class="eyebrow">Spartan Native · sample app</div>
+            <h1>One backup app. <span class="gradient-text">Native everywhere.</span></h1>
+            <p class="lead">
+              Harbor Backup is a real, multi-page Angular app built from <strong>stock spartan/ui components</strong>
+              and the Spartan Native packages. The same code looks at home on Windows, macOS, GNOME, KDE and ChromeOS,
+              in the browser and as a desktop app, and follows the user's accent, light/dark and contrast live.
+            </p>
+            <div class="meta">
+              <span class="tag ok">Seven skins · light &amp; dark</span>
+              <span class="tag">Browser · PWA · Wails</span>
+              <span class="tag">MIT</span>
+            </div>
+            <div class="cta-row" style="margin-top: 28px">
+              <a class="btn btn-primary" href="demo/">Try it in your browser</a>
+              <a class="btn btn-ghost" href="https://github.com/Spartan-Native/harbor">View the source</a>
+            </div>
+          </div>
+          <div class="stack">
+            <div class="code">
+              <div class="code-head">
+                <span class="file">app.config.ts</span><button class="copy-btn" data-copy aria-label="Copy"></button>
+              </div>
+              <pre><code data-lang="ts">// The only line that knows where Harbor runs.
+provideSpartanNative({
+  host: isWails() ? wailsHost() : webHost(),
+});</code></pre>
+            </div>
+            <div class="code">
+              <div class="code-head">
+                <span class="file">terminal</span><button class="copy-btn" data-copy aria-label="Copy"></button>
+              </div>
+              <pre><code data-lang="bash">git clone https://github.com/Spartan-Native/harbor
+cd harbor && npm install
+npm start</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <nav class="subnav" aria-label="On this page">
+        <div class="wrap">
+          <a href="#skins">Seven skins</a>
+          <a href="#pages">Pages</a>
+          <a href="#runtimes">Browser &amp; desktop</a>
+          <a href="#run">Run it</a>
+          <a href="#acceptance">Why it exists</a>
+        </div>
+      </nav>
+
+      <!-- ============================================================ Seven skins -->
+      <section id="skins" class="tight">
+        <div class="wrap">
+          <div class="section-head center reveal">
+            <div class="eyebrow">One app · seven skins</div>
+            <h2>The same window. <span class="gradient-text">Unchanged.</span></h2>
+            <p class="lead">
+              No per-platform templates. The skin draws geometry, materials and states; the host adapter brings the
+              user's accent and settings. Switch skins live from the dev bar in the demo.
+            </p>
+          </div>
+          <figure class="glow">
+            <div class="shot tilt">
+              <img
+                src="../docs/images/hero-one-app-seven-skins.png"
+                alt="The Harbor Backup window cut into seven vertical slices, one per skin: Windows 11 light, Windows 10 dark, macOS 26 light, macOS 13–15 dark, GNOME light, KDE dark, ChromeOS light"
+                width="2192"
+                height="1300"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>Windows 11 · Windows 10 · macOS 26 · macOS 13–15 · GNOME · KDE · ChromeOS</figcaption>
+          </figure>
+          <div class="grid grid-2" style="margin-top: 56px">
+            <figure class="reveal">
+              <div class="shot">
+                <img
+                  src="../docs/images/harbor-backup-win11-split.jpg"
+                  alt="Harbor Backup on Windows 11, light on the left and dark on the right"
+                  width="1600"
+                  height="792"
+                  loading="lazy"
+                />
+              </div>
+              <figcaption>Windows 11 · Fluent title bar and Mica, light and dark</figcaption>
+            </figure>
+            <figure class="reveal">
+              <div class="shot">
+                <img
+                  src="../docs/images/harbor-backup-macos26-split.jpg"
+                  alt="Harbor Backup on macOS 26, light on the left and dark on the right"
+                  width="1600"
+                  height="792"
+                  loading="lazy"
+                />
+              </div>
+              <figcaption>macOS 26 · sidebar under the traffic lights, light and dark</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- ============================================================ Pages -->
+      <section id="pages" class="tight">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div class="eyebrow">Pages</div>
+            <h2>A real app, not a component gallery.</h2>
+            <p class="lead">
+              Five pages share one store, so a change on one shows on the others: a new destination appears in
+              Overview's storage card, a restore is added to recent activity.
+            </p>
+          </div>
+          <div class="grid grid-3">
+            <div class="card reveal">
+              <h3>Overview</h3>
+              <p>
+                The running backup with progress and pause, the schedule switches, storage per destination, a backup
+                size chart for the last seven days and recent activity with status badges.
+              </p>
+            </div>
+            <div class="card reveal">
+              <h3>Schedules</h3>
+              <p>
+                A table with desktop selection (click, Shift/Ctrl/⌘-click, arrow keys), a right-click menu, an upcoming
+                runs calendar, and a modal sheet to add or edit a schedule.
+              </p>
+            </div>
+            <div class="card reveal">
+              <h3>Destinations</h3>
+              <p>
+                NAS, USB, cloud and SFTP as cards or a list, filtered by kind. Verify, rename and remove, a coach mark,
+                and a multi-step add form with validation.
+              </p>
+            </div>
+            <div class="card reveal">
+              <h3>Restore files</h3>
+              <p>
+                Browse a snapshot in resizable panes: folders, a selectable file table, search, breadcrumb and an
+                inspector. Restore with keep both, replace or skip, then watch the progress.
+              </p>
+            </div>
+            <div class="card reveal">
+              <h3>Settings</h3>
+              <p>
+                General, Backups, Notifications, Advanced and About, laid out the way each OS lays out its settings,
+                with shortcuts in the platform's notation and per-OS rows.
+              </p>
+            </div>
+            <div class="card reveal">
+              <h3>Window chrome</h3>
+              <p>
+                Title bar and window controls per OS, a status bar and a command bar from
+                <code>@spartan-native/desktop-ui</code>. Installed as a PWA, it draws into the title-bar overlay.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ Runtimes -->
+      <section id="runtimes" class="tight">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div class="eyebrow">Browser &amp; desktop</div>
+            <h2>Three ways to run. No UI changes.</h2>
+            <p class="lead">
+              The host adapter is picked at startup. Everything else talks to <code>@spartan-native/theme</code> only.
+            </p>
+          </div>
+          <div class="flow">
+            <div class="card reveal">
+              <h3>Browser tab</h3>
+              <p>
+                <code>webHost()</code> reads light/dark, contrast, transparency, text size and window focus from the
+                browser, live. Harbor draws the full mock window on a wallpaper, with a dev bar to switch skins.
+              </p>
+            </div>
+            <div class="card reveal">
+              <h3>Installed PWA</h3>
+              <p>
+                A manifest, maskable icons and a service worker for offline use. Installed, Harbor fills the window
+                and can draw its own title bar in the window-controls overlay, and Chromium can hand it the real
+                accent.
+              </p>
+            </div>
+            <div class="card reveal">
+              <h3>Wails desktop app</h3>
+              <p>
+                <code>wailsHost()</code> and the Go service from
+                <a href="https://spartan-native.github.io/host-wails/">host-wails</a> read the accent and settings from
+                the OS itself, and drive the real window, menus and file dialogs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- ============================================================ Run it -->
+      <section id="run" class="tight">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div class="eyebrow">Run it</div>
+            <h2>Clone, install, start.</h2>
+            <p class="lead">
+              Node 24.15+ or 26 and npm 11. The packages come from npmjs.org: no token, no registry setup. The desktop
+              shell also needs Go 1.26+ and the Wails v3 platform prerequisites.
+            </p>
+          </div>
+          <div class="grid grid-3">
+            <div class="stack reveal">
+              <h4>In the browser</h4>
+              <div class="code">
+                <div class="code-head">
+                  <span class="file">terminal</span><button class="copy-btn" data-copy aria-label="Copy"></button>
+                </div>
+                <pre><code data-lang="bash">npm install
+npm start          # http://localhost:4200</code></pre>
+              </div>
+            </div>
+            <div class="stack reveal">
+              <h4>As a desktop app</h4>
+              <div class="code">
+                <div class="code-head">
+                  <span class="file">terminal</span><button class="copy-btn" data-copy aria-label="Copy"></button>
+                </div>
+                <pre><code data-lang="bash">npm run start:desktop:wails
+# build only:
+npm run build:desktop:wails</code></pre>
+              </div>
+            </div>
+            <div class="stack reveal">
+              <h4>Storybook &amp; tests</h4>
+              <div class="code">
+                <div class="code-head">
+                  <span class="file">terminal</span><button class="copy-btn" data-copy aria-label="Copy"></button>
+                </div>
+                <pre><code data-lang="bash">npm test           # unit tests
+npm run storybook  # one story per page
+npm run test:visual</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ Acceptance -->
+      <section id="acceptance" class="tight">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div class="eyebrow">Why it exists</div>
+            <h2>The end-to-end test for Spartan Native.</h2>
+            <p class="lead">
+              Every package and host adapter has to carry Harbor before it ships. If something only works in a story,
+              Harbor finds out.
+            </p>
+          </div>
+          <div class="behaviors reveal">
+            <div>
+              <span class="ico">◧</span>
+              <h4>Stock components</h4>
+              <p>spartan/ui helm components, committed unmodified. The theme restyles them from CSS only.</p>
+            </div>
+            <div>
+              <span class="ico">⇄</span>
+              <h4>Host-agnostic</h4>
+              <p>One line in <code>app.config.ts</code> picks the host. No UI code knows the runtime.</p>
+            </div>
+            <div>
+              <span class="ico">▦</span>
+              <h4>Every page, every skin</h4>
+              <p>A visual test screenshots each page on all seven skins, in light and dark.</p>
+            </div>
+            <div>
+              <span class="ico">⏱</span>
+              <h4>Stable demo data</h4>
+              <p>"Today" is fixed at Thu 12 March 2026, 09:12, so screenshots never drift.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ CTA -->
+      <section class="tight">
+        <div class="wrap">
+          <div class="cta-band reveal">
+            <h2>See it follow <span class="gradient-text">your own settings.</span></h2>
+            <p class="lead">
+              Open the demo, then switch your OS to dark mode or raise the contrast. Harbor follows without a reload.
+            </p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="demo/">Open the demo</a>
+              <a class="btn btn-ghost" href="https://github.com/Spartan-Native/harbor">View on GitHub</a>
+              <a class="btn btn-ghost" href="https://spartan-native.github.io/spartan-native/">Spartan Native</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap foot">
+        <div>
+          <a class="logo" href="./"><img src="assets/logo.svg" alt="" width="28" height="28" />Harbor Backup</a>
+          <p class="fine">
+            The Spartan Native sample app. MIT licensed. Platform names are trademarks of their respective owners;
+            Spartan Native is not affiliated with or endorsed by any of them.
+          </p>
+        </div>
+        <div>
+          <h5>Harbor</h5>
+          <ul>
+            <li><a href="demo/">Live demo</a></li>
+            <li><a href="https://github.com/Spartan-Native/harbor">GitHub</a></li>
+            <li><a href="https://github.com/Spartan-Native/harbor/blob/main/docs/sample-app.md">The spec</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Spartan Native</h5>
+          <ul>
+            <li><a href="https://spartan-native.github.io/spartan-native/">Website</a></li>
+            <li><a href="https://spartan-native.github.io/spartan-native/hosts.html">Host adapters</a></li>
+            <li><a href="https://github.com/Spartan-Native/spartan-native">GitHub</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Hosts</h5>
+          <ul>
+            <li><a href="https://spartan-native.github.io/host-wails/">Go + Wails</a></li>
+            <li><a href="https://github.com/Spartan-Native/host-tauri">Rust + Tauri</a></li>
+            <li><a href="https://github.com/Spartan-Native/host-dotnet">.NET + Photino</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

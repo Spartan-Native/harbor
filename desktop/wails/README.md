@@ -8,11 +8,7 @@ npm run build:desktop:wails    # build only → desktop/wails/bin/harbor-backup[
 SPARTAN_NATIVE_DEBUG=1 desktop/wails/bin/harbor-backup   # log what the OS reports
 ```
 
-Needs Go ≥ 1.26 and the Wails v3 platform prerequisites (WebView2 on Windows, WebKitGTK on Linux; see the Wails docs). The Go module `github.com/spartan-native/host-wails` is private, so tell Go to skip the public proxy and make sure git can reach GitHub (SSH key or a token):
-
-```bash
-go env -w GOPRIVATE=github.com/spartan-native/*
-```
+Needs Go ≥ 1.26 and the Wails v3 platform prerequisites (WebView2 on Windows, WebKitGTK on Linux; see the Wails docs). The Go module `github.com/spartan-native/host-wails` comes from the public Go proxy; on macOS, building it needs the Xcode Command Line Tools (cgo).
 
 | OS | Window | Harbor draws |
 | --- | --- | --- |

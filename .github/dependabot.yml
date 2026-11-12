@@ -1,0 +1,30 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      # These families move in lockstep; update each in one pull request.
+      angular:
+        patterns: ['@angular/*', '@angular-devkit/*']
+      spartan:
+        patterns: ['@spartan-ng/*']
+      spartan-native:
+        patterns: ['@spartan-native/*']
+      storybook:
+        patterns: ['storybook', '@storybook/*']
+    ignore:
+      # Moves together with the Go module in desktop/wails/go.mod; update both by hand.
+      - dependency-name: '@spartan-native/host-wails'
+  - package-ecosystem: gomod
+    directory: /desktop/wails
+    schedule:
+      interval: weekly
+    ignore:
+      # Moves together with @spartan-native/host-wails in package.json; update both by hand.
+      - dependency-name: github.com/spartan-native/host-wails
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly

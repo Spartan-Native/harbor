@@ -3,7 +3,7 @@ module harbor-desktop
 go 1.26.0
 
 require (
-	github.com/spartan-native/host-wails v0.1.0
+	github.com/spartan-native/host-wails v0.2.0
 	github.com/wailsapp/wails/v3 v3.1.0
 )
 

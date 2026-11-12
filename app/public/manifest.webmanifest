@@ -2,7 +2,6 @@
   "name": "Harbor Backup",
   "short_name": "Harbor",
   "description": "Back up your documents, photos and projects to a NAS, the cloud or a USB drive.",
-  "id": "/",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
