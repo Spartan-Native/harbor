@@ -6,6 +6,11 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Changed
+
+- Built against Spartan Native `0.2.1`: the npm packages at `^0.2.1` and the Go module `github.com/spartan-native/host-wails` at `v0.2.1`.
+- `package-lock.json` is committed, so CI and the Pages workflow can run `npm ci`.
+
 ## [0.2.0] - 2026-11-12
 
 ### Added
